@@ -121,3 +121,7 @@ td, th {
     padding: 5px 15px;
     font-family: "Lucida Grande", Verdana, Arial;
 }
+
+table.change-list, table.change-list th, table.cancel-link td {
+    border: 1px solid #ccc;
+}
