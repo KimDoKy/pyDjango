@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.urlresolvers import resolve
+from django.core.urlresolvers import reverse
 
 # Create your models here.
 class Post(models.Model):
@@ -20,7 +20,7 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reversed('blog:post_detail', args=(self.slug,))
+        return reverse('blog:post_detail', args=(self.slug,))
 
     def get_previous_post(self):
         return self.get_previous_by_modify_date()
