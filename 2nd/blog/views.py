@@ -1,10 +1,16 @@
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView
 from django.views.generic.dates import DayArchiveView, TodayArchiveView
 
 from blog.models import Post
+from tagging.models import Tag, TaggedItem
+from tagging.views import TaggedObjectList
 
 # Create your views here.
+
+#-- TemplateView
+class TagTV(TemplateView):
+    template_name = 'tagging/tagging_cloud.html'
 
 #-- ListView
 class PostLV(ListView):
@@ -12,6 +18,10 @@ class PostLV(ListView):
     template_name = 'blog/post_all.html'
     context_object_name = 'posts'
     paginate_by = 2
+
+class PostTOL(TaggedObjectList):
+    model = Post
+    template_name = 'tagging/tagging_post_list.html'
 
 #-- DetailView
 class PostDV(DetailView):
