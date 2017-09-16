@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 
-from photo.fields import TunmbnailImageField
+from photo.fields import ThumbnailImageField
 
 # Create your models here.
 
@@ -21,7 +21,7 @@ class Album(models.Model):
 class Photo(models.Model):
     album = models.ForeignKey(Album)
     title = models.CharField(max_length=50)
-    image = TunmbnailImageField(upload_to='photo/%Y/%m')
+    image = ThumbnailImageField(upload_to='photo/%Y/%m')
     description = models.TextField('Photo Description', blank=True)
     upload_date = models.DateTimeField('Upload Date', auto_now_add=True)
 
