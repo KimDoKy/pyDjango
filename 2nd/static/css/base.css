@@ -122,6 +122,10 @@ td, th {
     font-family: "Lucida Grande", Verdana, Arial, sans-serif;
 }
 
+table.change-list, table.change-list th, table.change-list td {
+    border: 1px solid #ccc;
+}
+
 div#content_home {
     position: absolute;
     top: 80px;
