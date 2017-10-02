@@ -21,6 +21,13 @@ class Album(models.Model):
     def get_absolute_url(self):
         return reverse('photo:album_detail', args=(self.id,))
 
+class Publication(models.Model):
+    title = models.CharField(max_length=30)
+    albums = models.ManyToManyField(Album)
+
+    def __str__(self):
+        return self.title
+
 class Photo(models.Model):
     album = models.ForeignKey(Album)
     title = models.CharField(max_length=50)
