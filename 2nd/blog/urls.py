@@ -46,4 +46,10 @@ urlpatterns = [
 
     # ex: /99/delete/
     url(r'^(?P<pk>[0-9]+)/delete/$', PostDeleteView.as_view(), name="delete"),
+
+    # ex: /test/
+    url(r'^test/$', TestPostLV.ad_view(), name='post_test'),
+
+    # ex: /test/word/
+    url(r'^test/(?P<word>[\w]+)/$', TestPostLV.as_view(), name='post_test'),
 ]
